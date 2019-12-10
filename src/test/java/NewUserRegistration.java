@@ -13,7 +13,7 @@ public class NewUserRegistration {
     @Test
     public void verifyLogin() {
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new java.util.Date());
-        System.setProperty("webdriver.chrome.driver", "/Users/techops/Downloads/chromedriver");
+
         WebDriver driver = new ChromeDriver();
         driver.get("https://spree-vapasi-prod.herokuapp.com");
         driver.manage().window().maximize();
