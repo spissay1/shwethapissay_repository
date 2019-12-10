@@ -3,6 +3,7 @@ package suite;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import util.ConfigFileReader;
 import util.DriverManager;
 
@@ -28,5 +29,6 @@ public class SuiteManager {
         String baseUrl = config.getProperty("base_url");
         DriverManager.driver.get(baseUrl);
     }
+
 
 }
