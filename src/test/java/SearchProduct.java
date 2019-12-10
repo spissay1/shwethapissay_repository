@@ -24,10 +24,10 @@ public class SearchProduct extends SuiteManager{
 
     @Test
     public void searchProduct() {
-        DriverManager.driver.findElement(By.id("link-to-login")).click();
+        /*DriverManager.driver.findElement(By.id("link-to-login")).click();
         DriverManager.driver.findElement(By.id("spree_user_email")).sendKeys("shwethapissay@gmail.com");
         DriverManager.driver.findElement(By.id("spree_user_password")).sendKeys("pass123");
-        DriverManager.driver.findElement(By.name("commit")).click();
+        DriverManager.driver.findElement(By.name("commit")).click();*/
 
         //Search by keyword for an item
         DriverManager.driver.findElement(By.id("keywords")).sendKeys(searchItem);

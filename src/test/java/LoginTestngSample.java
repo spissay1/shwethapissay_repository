@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.BasePage;
@@ -29,6 +30,9 @@ public class LoginTestngSample extends SuiteManager {
     public BasePage basePage;
     public LoginPage loginPage;
     public HomePage homePage;
+
+    //Actions builder = new Actions(DriverManager.driver);
+    //builder.
 
     @Test (dataProvider = "loginCredentials", dataProviderClass = loginCredentials.class)
     public void Login(String username, String password) {
