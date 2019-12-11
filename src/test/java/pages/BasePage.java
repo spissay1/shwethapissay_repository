@@ -20,8 +20,8 @@ public class BasePage extends SuiteManager {
     private WebElement loginButton;
 
     public LoginPage clickLoginButton(){
-        WebDriverWait wait = new WebDriverWait(DriverManager.driver, 30);
-        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
+        //WebDriverWait wait = new WebDriverWait(DriverManager.driver, 30);
+        //wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         loginButton.click();
         return new LoginPage();
     }
