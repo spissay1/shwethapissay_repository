@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.SearchPage;
 import suite.SuiteManager;
 import testdata.loginCredentials;
 import util.ConfigFileReader;
@@ -18,8 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class LoginTestngSample extends SuiteManager {
-    /*private static ConfigFileReader config = new ConfigFileReader();
-    String userName;
+    private static ConfigFileReader config = new ConfigFileReader();
+    /*String userName;
     String passWord;
     @BeforeTest
     public void enterUserIDPassword() {
@@ -30,19 +31,13 @@ public class LoginTestngSample extends SuiteManager {
     public BasePage basePage;
     public LoginPage loginPage;
     public HomePage homePage;
-
-    //Actions builder = new Actions(DriverManager.driver);
-    //builder.
+    public SearchPage searchPage;
 
     @Test (dataProvider = "loginCredentials", dataProviderClass = loginCredentials.class)
     public void Login(String username, String password) {
         basePage = new BasePage(DriverManager.driver);
         loginPage = basePage.clickLoginButton();
         homePage = loginPage.login(username, password);
-        /*DriverManager.driver.findElement(By.id("link-to-login")).click();
-        DriverManager.driver.findElement(By.id("spree_user_email")).sendKeys(username);
-        DriverManager.driver.findElement(By.id("spree_user_password")).sendKeys(password);
-        DriverManager.driver.findElement(By.name("commit")).click(); */
 
         List<WebElement> loginSuccesslist = DriverManager.driver.findElements(By.xpath("//*[contains(text(),'Logged in successfully')]"));
         if (loginSuccesslist.size() > 0) {
@@ -51,5 +46,16 @@ public class LoginTestngSample extends SuiteManager {
         else {
             System.out.println("Login not successful");
         }
+    }
+
+    @Test (dataProvider = "loginCredentials", dataProviderClass = loginCredentials.class)
+    public void SearchItem(String username, String password){
+        String searchitem= config.getProperty("searchitem");
+        basePage = new BasePage(DriverManager.driver);
+        loginPage = basePage.clickLoginButton();
+        homePage = loginPage.login(username, password);
+        searchPage = homePage.searchItem(searchitem);
+        searchPage.productMatchingSearchString(searchitem);
+
     }
 }
