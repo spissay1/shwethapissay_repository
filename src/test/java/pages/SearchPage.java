@@ -22,22 +22,20 @@ public class SearchPage extends SuiteManager {
     @FindBy(xpath = "//*[@class='search-results-title']")
     private WebElement searchTitle;
 
-    public void productMatchingSearchString(String searchitem){
-           int listSize = productsList.size();
-        System.out.println("Products Total:: "+listSize);
-        if(listSize>0){
-            for(int i =0; i<listSize; i++){
-                String title =  productsList.get(i).getText();
-                System.out.println("Product Name ::"+ title);
-                Assert.assertTrue(title.toLowerCase().contains(searchitem.toLowerCase()));
-            }
 
-        }
-        else{
-            System.out.println("Search Title ::" +searchTitle.getText());
-            Assert.assertEquals("No products found",searchTitle.getText());
-        }
-
+    public List<WebElement> getProductsList() {
+        return productsList;
     }
 
+    public void setProductsList(List<WebElement> productsList) {
+        this.productsList = productsList;
+    }
+
+    public WebElement getSearchTitle() {
+        return searchTitle;
+    }
+
+    public void setSearchTitle(WebElement searchTitle) {
+        this.searchTitle = searchTitle;
+    }
 }

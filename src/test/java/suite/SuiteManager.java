@@ -1,9 +1,7 @@
 package suite;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.By;
+import org.testng.annotations.*;
 import util.ConfigFileReader;
 import util.DriverManager;
 
@@ -33,5 +31,9 @@ public class SuiteManager {
         DriverManager.driver.get(baseUrl);
     }
 
+    @AfterClass
+    public void logOut(){
+        DriverManager.driver.findElement(By.linkText("Logout")).click();
+    }
 
 }
